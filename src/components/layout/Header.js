@@ -1,7 +1,7 @@
 import Menu from "./Menu";
 import React, { useEffect, useState } from "react";
-
 import api from "./../../services/api";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [logo, setlogo] = useState("./nologo.png");
   const [social, setsocial] = useState([]);
@@ -55,9 +55,9 @@ const Header = () => {
         <div className="header">
           <div className="wrapper">
             <div className="logo">
-              <a href="/">
+              <Link to="/">
                 <img src={logo} alt="Logo" />
-              </a>
+              </Link>
             </div>
             <Menu />
             <div className="search-menu">

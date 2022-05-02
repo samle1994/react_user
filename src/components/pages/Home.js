@@ -5,7 +5,7 @@ const Home = () => {
   const [bannerqc, setbannerqc] = useState([]);
   const loadData = () => {
     api.get("/Frontend/photos/banner").then((res) => {
-      console.log(res);
+      //console.log(res);
       if (res.data.errorCode === 0) {
         setbannerqc(res.data.data);
       }

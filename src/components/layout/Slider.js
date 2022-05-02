@@ -5,7 +5,7 @@ const Sliders = () => {
   const [slider, setslider] = useState([]);
   const loadData = () => {
     api.get("/Frontend/photos/slider").then((res) => {
-      console.log(res);
+      //console.log(res);
       if (res.data.errorCode === 0) {
         setslider(res.data.data);
       }
