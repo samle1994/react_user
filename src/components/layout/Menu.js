@@ -1,6 +1,7 @@
 import api from "./../../services/api";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import $ from "jquery";
 const Menu = () => {
   const [productlist, setproductlist] = useState([]);
   const loadData = () => {
@@ -14,6 +15,38 @@ const Menu = () => {
   useEffect(() => {
     loadData();
   }, []);
+  const showMenu = (e) => {
+    e.preventDefault();
+    if ($(".menu_mobile").hasClass("active")) {
+      $("#main_menu").stop().slideUp(500);
+      $(".menu_mobile").removeClass("active");
+    } else {
+      $("#main_menu").stop().slideDown(500);
+      $(".menu_mobile").addClass("active");
+    }
+  };
+  const showMenuList = () => {
+    if ($(".icon_down").hasClass("active")) {
+      $(".icon_down").next().slideUp();
+      $(".icon_down").removeClass("active");
+    } else {
+      $(".icon_down").next().slideDown();
+      $(".icon_down").addClass("active");
+    }
+  };
+  let heaigt_header = $("#header").height();
+  $("#header").css("min-height", heaigt_header);
+  window.onscroll = function () {
+    let offsettop = $(window).scrollTop();
+    if (offsettop >= heaigt_header) {
+      if (!$("#header .header").hasClass("fix_head animated fadeInDown")) {
+        $("#header .header").addClass("fix_head animated fadeInDown");
+      }
+    } else {
+      $("#header .header").removeClass("fix_head animated fadeInDown");
+    }
+  };
+
   return (
     <>
       <div id="main_menu">
@@ -21,6 +54,9 @@ const Menu = () => {
           <ul>
             <li>
               <NavLink to="/san-pham">Sản phẩm</NavLink>
+              <span onClick={showMenuList} className="icon_down">
+                <i className="bi bi-chevron-down"></i>
+              </span>
               <ul>
                 {productlist.map((list, idx) => (
                   <li key={list.id}>
@@ -60,11 +96,11 @@ const Menu = () => {
             </li>
           </ul>
         </nav>
-        <div className="menu_mobile">
-          <a href="/#">
-            <i className="bi bi-list"></i>
-          </a>
-        </div>
+      </div>
+      <div className="menu_mobile">
+        <a onClick={showMenu} href="/#">
+          <i className="bi bi-list"></i>
+        </a>
       </div>
     </>
   );

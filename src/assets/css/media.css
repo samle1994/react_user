@@ -1,0 +1,116 @@
+@media (max-width: 1200px) {
+  .wrapper {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (max-width: 992px) {
+  #main_menu {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 99;
+    padding: 10px 0;
+    display: none;
+  }
+
+  #main_menu.active {
+    display: block;
+  }
+  .menu_mobile {
+    display: block;
+  }
+  .menu_mobile.active i:before {
+    content: "\F62A";
+  }
+  .menu > ul > li .icon_down {
+    display: flex;
+  }
+  .menu ul li ul {
+    width: 100%;
+    box-shadow: none;
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    transform: translate(0, 0);
+    visibility: visible;
+    display: none;
+    opacity: 1;
+  }
+  #menu.menu {
+    max-height: calc(100vh - 135px);
+    overflow-y: auto;
+  }
+  .menu ul li ul li a {
+    border-bottom: 1px solid #ccc;
+  }
+  .menu ul li ul li ul {
+    left: auto !important;
+    display: block;
+  }
+  .menu ul li ul li ul li a {
+    padding-left: 25px;
+  }
+  .search-menu {
+    padding: 0 10px;
+  }
+  #header .logo {
+    max-width: 120px;
+    padding-right: 10px;
+  }
+  .menu > ul {
+    flex-wrap: wrap;
+  }
+  .menu > ul > li {
+    width: 100%;
+  }
+  .menu > ul > li > a {
+    height: auto;
+    padding: 5px 10px;
+    justify-content: flex-start;
+    border-bottom: 1px solid #ccc;
+  }
+  .icon_down.active i::before {
+    content: "\f286";
+  }
+}
+@media (max-width: 767px) {
+  .margin-bn,
+  .margin-pr {
+    margin: 0 -7px;
+  }
+  .items-bn,
+  .item_pr_l {
+    padding: 0 7px;
+  }
+  .title_main h2 {
+    font-size: 25px;
+    padding: 0 20px;
+  }
+  .title_main h2:before,
+  .title_main h2:after {
+    top: 17px;
+  }
+  .banner_top {
+    padding: 20px 0;
+  }
+  .bannerbottom {
+    padding: 10px 0 20px 0;
+  }
+  #footer .footer .items_footer:nth-child(2) {
+    max-width: 100% !important;
+    padding-top: 20px;
+  }
+  #footer .footer .items_footer:nth-child(3) {
+    max-width: 100% !important;
+    padding-top: 20px;
+  }
+  #footer .footer {
+    padding: 20px 0;
+  }
+}

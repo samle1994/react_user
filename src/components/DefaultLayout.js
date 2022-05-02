@@ -9,12 +9,13 @@ const DefaultLayout = () => {
     <>
       <Header />
       <Slider />
-      <Routes>
-        {routes.map((route, index) => (
-          <Route key={index} path={route.path} element={route.component} />
-        ))}
-      </Routes>
-
+      <main>
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.component} />
+          ))}
+        </Routes>
+      </main>
       <Footer />
     </>
   );
