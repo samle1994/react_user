@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+}
+.wrapper {
+  width: 1200px;
+  margin: auto;
+}
+/* Header */
+
+#header .header_top {
+  background: #000;
+  padding: 8px 0;
+}
+#header .header_top p {
+  font-size: 14px;
+  color: #fff;
+}
+#header .header_top .social img {
+  margin-left: 15px;
+}
+#header .header_top .social img:hover {
+  transform: rotate(25deg);
+}
+#header .header {
+  padding: 10px 0;
+}
+#header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#header .icon_cart i {
+  font-size: 20px;
+  color: #000;
+}
+#header .icon_cart a {
+  display: block;
+  position: relative;
+}
+#header .icon_cart a span {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ee5725;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -9px;
+  color: #fff;
+  font-size: 12px;
+}
+/* Menu */
+#main_menu {
+  flex-grow: 1;
+  max-width: 590px;
+}
+#menu.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.menu {
+  width: 100%;
+}
+.menu ul {
+  padding-left: 0;
+  list-style: none;
+}
+.menu > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9999;
+  position: relative;
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+.menu > ul > li {
+  position: relative;
+  flex-grow: 1;
+}
+.menu li a {
+  text-decoration: none;
+}
+.menu > ul > li:last-child {
+  background: none;
+}
+.menu > ul > li > a {
+  color: #221f1f;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 45px;
+  text-align: center;
+  width: 100%;
+  padding-right: 5px;
+}
+.menu > ul > li:hover > a {
+  color: #ed2927;
+}
+.menu > ul > li > a.active {
+  color: #ed2927;
+}
+.menu ul li ul {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 80px);
+  visibility: hidden;
+  line-height: normal;
+  width: 160px;
+  opacity: 0;
+  transform: translate(0, 40px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  z-index: 11;
+}
+.menu > ul li:hover > ul {
+  opacity: 1;
+  transform: translate(0, 0);
+  visibility: visible;
+}
+.menu ul li ul li {
+  display: list-item;
+  width: 100%;
+  position: relative;
+}
+.menu ul li ul li:last-child {
+  border: 0px !important;
+}
+.menu ul li ul li a {
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  display: block;
+  padding: 10px 10px;
+  text-transform: uppercase;
+}
+.menu ul > li > ul > li:hover {
+  background: #000;
+}
+.menu ul > li > ul > li:hover > a {
+  color: #fff;
+}
+.menu ul > li > ul > li ul li a {
+  text-transform: inherit;
+}
+.menu ul li ul li ul {
+  left: 100% !important;
+  top: 0;
+}
+
+.menu_mobile {
+  display: none;
+}
+.menu_mobile a {
+  color: #fff;
+  font-size: 35px;
+}
+
+.search-menu {
+  width: 225px;
+  position: relative;
+  z-index: 1;
+}
+.form_search {
+  width: 100%;
+  height: 33px;
+  position: relative;
+  padding-left: 32px;
+}
+.form_search input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #6d6f70;
+  height: 22px;
+  outline: none;
+  color: #333;
+  background: #fff;
+}
+.form_search button {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 32px;
+  height: 22px;
+  outline: none;
+  border: 0;
+  background: none;
+}
+.form_search input::-webkit-input-placeholder {
+  color: #b8b9bb;
+  font-size: 12px;
+}
+.form_search input:-moz-placeholder {
+  color: #b8b9bb;
+  font-size: 12px;
+}
+.form_search input::-moz-placeholder {
+  color: #b8b9bb;
+  font-size: 12px;
+}
+.form_search input:-ms-input-placeholder {
+  color: #b8b9bb;
+  font-size: 12px;
+  font-family: "NotoSans-Medium";
+}
+/* slider */
+#slidershow {
+  width: 100%;
+  overflow: hidden;
+}
+#slidershow img {
+  width: 100%;
+}
+.transition {
+  transition: all 0.5s;
+}
+/* Banner qc */
+.banner_top {
+  padding: 30px 0;
+}
+.margin-bn {
+  margin: 0 -15px;
+}
+.items-bn {
+  padding: 0 15px;
+}
+.items-bn a {
+  display: block;
+  border-radius: 15px;
+  box-shadow: 1px 1px 15px #ddd;
+  overflow: hidden;
+}
