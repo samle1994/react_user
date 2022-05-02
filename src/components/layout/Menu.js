@@ -89,10 +89,10 @@ const Menu = () => {
               <NavLink to="/tin-tuc">Tin tức</NavLink>
             </li>
             <li>
-              <NavLink to="/sale-of">Sale of</NavLink>
+              <NavLink to="/sale-off">Sale off</NavLink>
             </li>
             <li>
-              <NavLink to="/sale-of">Sản phẩm mới</NavLink>
+              <NavLink to="/san-pham-moi">Sản phẩm mới</NavLink>
             </li>
           </ul>
         </nav>

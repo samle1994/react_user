@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import ItemsProduct from "../ItemsProduct";
 import api from "./../../services/api";
+import Sliders from "./../layout/Slider";
+
 const Home = () => {
   const [bannerqc, setbannerqc] = useState([]);
   const [productnew, setproductnew] = useState([]);
@@ -120,6 +122,7 @@ const Home = () => {
 
   return (
     <>
+      <Sliders />
       <section id="index">
         <div className="banner_top">
           <div className="wrapper">

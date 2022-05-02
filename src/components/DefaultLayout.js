@@ -1,5 +1,4 @@
 import Header from "./layout/Header";
-import Slider from "./layout/Slider";
 import Footer from "./layout/Footer";
 import routes from "./../routes";
 import { Routes, Route } from "react-router-dom";
@@ -8,7 +7,7 @@ const DefaultLayout = () => {
   return (
     <>
       <Header />
-      <Slider />
+
       <main>
         <Routes>
           {routes.map((route, index) => (
