@@ -19,7 +19,6 @@ const DefaultLayout = () => {
       InfoAction(res.data.data);
     }
   });
-
   return (
     <>
       <Header />
