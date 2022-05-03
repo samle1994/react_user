@@ -507,9 +507,15 @@ element.style {
   width: 41px;
   height: 41px;
   position: fixed;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
   bottom: 25px;
   right: 25px;
   z-index: 10;
   cursor: pointer;
+}
+.scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
 }

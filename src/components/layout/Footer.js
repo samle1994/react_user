@@ -6,6 +6,7 @@ const Footer = () => {
   const [info, setinfo] = useState("");
   const [social, setsocial] = useState([]);
   const [news, setnews] = useState([]);
+  const [backtop, setbacktop] = useState(false);
   const loadData = () => {
     api.get("/Frontend/photos/social_bottom").then((res) => {
       //console.log(res);
@@ -27,6 +28,22 @@ const Footer = () => {
   useEffect(() => {
     loadData();
   }, []);
+
+  const setscrollTop = () => {
+    let offsettop = document.documentElement.scrollTop;
+    if (offsettop >= 100) {
+      setbacktop(true);
+    } else {
+      setbacktop(false);
+    }
+  };
+  window.addEventListener("scroll", setscrollTop);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <footer id="footer">
@@ -86,6 +103,12 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      <div
+        onClick={scrollToTop}
+        className={`scrollToTop ${backtop ? "show" : ""} `}
+      >
+        <img src="./top.png" alt="Go Top" />
+      </div>
     </>
   );
 };

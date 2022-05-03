@@ -16,11 +16,14 @@
     border-top: 1px solid #ccc;
     z-index: 99;
     padding: 10px 0;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
   }
 
   #main_menu.active {
-    display: block;
+    visibility: visible;
+    opacity: 1;
   }
   .menu_mobile {
     display: block;

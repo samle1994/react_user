@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import $ from "jquery";
 const Menu = () => {
   const [productlist, setproductlist] = useState([]);
+  const [menumobile, setmenumobile] = useState(false);
   const loadData = () => {
     api.get("/Frontend/productlist").then((res) => {
       //console.log(res);
@@ -13,43 +14,15 @@ const Menu = () => {
     });
   };
 
-  const scrollTop = () => {
-    let heaigt_header = $("#header").height();
-    $("#header").css("min-height", heaigt_header);
-    document.onscroll = function () {
-      let offsettop = $(window).scrollTop();
-      if (offsettop >= heaigt_header) {
-        if (!$("#header .header").hasClass("fix_head animated fadeInDown")) {
-          $("#header .header").addClass("fix_head animated fadeInDown");
-        }
-      } else {
-        $("#header .header").removeClass("fix_head animated fadeInDown");
-      }
-      if (!$(".scrollToTop").length) {
-        $("body").append(
-          '<div class="scrollToTop"><img src="./top.png" alt="Go Top"/></div>'
-        );
-      }
-      if ($(window).scrollTop() > 200) $(".scrollToTop").fadeIn();
-      else $(".scrollToTop").fadeOut();
-    };
-    $("body").on("click", ".scrollToTop", function () {
-      $("html, body").animate({ scrollTop: 0 }, 0.1);
-      return false;
-    });
-  };
   useEffect(() => {
     loadData();
-    scrollTop();
   }, []);
   const showMenu = (e) => {
     e.preventDefault();
-    if ($(".menu_mobile").hasClass("active")) {
-      $("#main_menu").stop().slideUp(500);
-      $(".menu_mobile").removeClass("active");
+    if (menumobile === true) {
+      setmenumobile(false);
     } else {
-      $("#main_menu").stop().slideDown(500);
-      $(".menu_mobile").addClass("active");
+      setmenumobile(true);
     }
   };
   const showMenuList = () => {
@@ -64,7 +37,7 @@ const Menu = () => {
 
   return (
     <>
-      <div id="main_menu">
+      <div id="main_menu" className={menumobile ? "active" : ""}>
         <nav id="menu" className="menu">
           <ul>
             <li>
@@ -112,7 +85,7 @@ const Menu = () => {
           </ul>
         </nav>
       </div>
-      <div className="menu_mobile">
+      <div className={`menu_mobile ${menumobile ? "active" : ""}`}>
         <a onClick={showMenu} href="/#">
           <i className="bi bi-list"></i>
         </a>
