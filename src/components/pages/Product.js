@@ -3,13 +3,18 @@ import ItemsProduct from "../ItemsProduct";
 import api from "./../../services/api";
 import { Pagination } from "react-bootstrap";
 import Left from "./../layout/Left";
-const ProductNews = () => {
+import { useParams } from "react-router-dom";
+const Product = () => {
   const [products, setproduct] = useState([]);
   const [bannerproduct, setbannerproduct] = useState({});
   const [page, setpage] = useState(0);
   const [pagingItems, setpagingItems] = useState([]);
+  const params = useParams();
   const loadData = () => {
-    api.get(`productnews/paging?page=${page}&pageLength=8`).then((res) => {
+    const url = `product/paging?page=${page}&pageLength=8${
+      params.list !== undefined ? `&id_list=${params.list}` : ""
+    }${params.cat !== undefined ? `&id_cat=${params.cat}` : ""}`;
+    api.get(url).then((res) => {
       if (res.data.errorCode === 0) {
         setproduct(res.data.data);
         let items = [];
@@ -43,7 +48,7 @@ const ProductNews = () => {
         setpagingItems(items);
       }
     });
-    api.get("photo/bannerproductnews").then((res) => {
+    api.get("photo/bannerproduct").then((res) => {
       if (res.data.errorCode === 0) {
         setbannerproduct(res.data.data);
       }
@@ -51,7 +56,7 @@ const ProductNews = () => {
   };
   useEffect(() => {
     loadData();
-  }, [page]);
+  }, [page, params.list, params.cat]);
   return (
     <>
       <main>
@@ -75,7 +80,7 @@ const ProductNews = () => {
               </a>
             </div>
             <div className="title_product">
-              <h2>Sản phẩm mới</h2>
+              <h2>Sản phẩm</h2>
             </div>
             <div className="row g-md-4 g-sm-3 g-2">
               {products.map((product, idx) => (
@@ -103,4 +108,4 @@ const ProductNews = () => {
   );
 };
 
-export default ProductNews;
+export default Product;

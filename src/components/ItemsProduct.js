@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const ItemsProduct = (props) => {
   const { name, photo, slug, price, id } = props;
   const photo_pr = photo ? photo : "./noimage.png";
@@ -5,15 +6,13 @@ const ItemsProduct = (props) => {
     <>
       <div className="item_pr">
         <div className="images_pr">
-          <a title={name} href={`san-pham/${slug}-${id}`}>
+          <Link to={`/san-pham/${slug}-${id}`}>
             <img className="transition img-fluid" src={photo_pr} alt={name} />
-          </a>
+          </Link>
         </div>
         <div className="des_pr">
           <h3>
-            <a title={name} href={`san-pham/${slug}-${id}`}>
-              {name}
-            </a>
+            <Link to={`/san-pham/${slug}-${id}`}>{name}</Link>
           </h3>
           <p>{price} VNĐ</p>
         </div>

@@ -554,3 +554,48 @@ element.style {
   opacity: 1;
   visibility: visible;
 }
+/* Left */
+#left {
+  width: 240px;
+  position: sticky;
+  top: 100px;
+}
+#left h2 {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 10px;
+}
+#left ul {
+  padding-left: 0;
+}
+#left ul li {
+  list-style: none;
+}
+#left ul > li > a {
+  font-size: 15px;
+  color: #050505;
+  display: block;
+  padding: 5px 0;
+  position: relative;
+  text-decoration: none;
+}
+#left ul > li > a.icon_down:after {
+  content: "\F282";
+  font-family: bootstrap-icons !important;
+  font-size: 14px;
+  color: #333;
+  position: absolute;
+  right: 0;
+  top: 7px;
+}
+#left ul li:hover > a {
+  color: #ed2927;
+}
+#left ul > li > ul {
+  display: none;
+}
+
+.content_right {
+  width: calc(100% - 240px);
+  padding-left: 30px;
+}

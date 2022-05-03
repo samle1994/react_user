@@ -80,7 +80,7 @@ const Footer = () => {
               <div className="content_footer">
                 <p>
                   <i className="bi bi-geo-alt-fill"></i>
-                  Địa chỉ: {info.diachi}
+                  Địa chỉ: {info.address}
                 </p>
                 <p>
                   <i className="bi bi-telephone-forward-fill"></i> Hotline:{" "}
@@ -103,7 +103,7 @@ const Footer = () => {
         onClick={scrollToTop}
         className={`scrollToTop ${backtop ? "show" : ""} `}
       >
-        <img src="./top.png" alt="Go Top" />
+        <img src="/top.png" alt="Go Top" />
       </div>
     </>
   );

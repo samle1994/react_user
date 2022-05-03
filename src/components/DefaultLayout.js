@@ -8,17 +8,27 @@ import api from "./../services/api";
 const DefaultLayout = () => {
   const dispatch = useDispatch();
 
-  const InfoAction = (data) => {
+  const InfoAction = (data, productlist) => {
     dispatch({
       type: ActionTypes.SHOW_INFO,
       info: data,
+      product_list: productlist,
+    });
+    dispatch({
+      type: ActionTypes.PRODUCT_LIST,
+      product_list: productlist,
     });
   };
-  api.get("showinfo").then((res) => {
-    if (res.data.errorCode === 0) {
-      InfoAction(res.data.data);
-    }
-  });
+  const request1 = api.get("showinfo");
+  const request2 = api.get("productlist");
+  api.promise([request1, request2]).then(
+    api.spread((...res) => {
+      if (res[0].data.errorCode === 0 && res[0].data.errorCode === 0) {
+        InfoAction(res[0].data.data, res[1].data.data);
+      }
+    })
+  );
+
   return (
     <>
       <Header />

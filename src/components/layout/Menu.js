@@ -1,22 +1,10 @@
-import api from "./../../services/api";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import $ from "jquery";
+import { useSelector } from "react-redux";
 const Menu = () => {
-  const [productlist, setproductlist] = useState([]);
   const [menumobile, setmenumobile] = useState(false);
-  const loadData = () => {
-    api.get("productlist").then((res) => {
-      //console.log(res);
-      if (res.data.errorCode === 0) {
-        setproductlist(res.data.data);
-      }
-    });
-  };
 
-  useEffect(() => {
-    loadData();
-  }, []);
   const showMenu = (e) => {
     e.preventDefault();
     if (menumobile === true) {
@@ -34,7 +22,7 @@ const Menu = () => {
       $(".icon_down").addClass("active");
     }
   };
-
+  const productlist = useSelector((state) => state.infoReducer.product_list);
   return (
     <>
       <div id="main_menu" className={menumobile ? "active" : ""}>
@@ -48,7 +36,7 @@ const Menu = () => {
               <ul>
                 {productlist.map((list, idx) => (
                   <li key={list.id}>
-                    <a href={`san-pham/${list.slug}`} title={list.name}>
+                    <a href={`/san-pham/${list.slug}`} title={list.name}>
                       {list.name}
                     </a>
                     {list.product_cat ? (
@@ -57,7 +45,7 @@ const Menu = () => {
                           {list.product_cat.map((cat, idx) => (
                             <li key={cat.id}>
                               <a
-                                href={`san-pham/${list.slug}/${cat.slug}`}
+                                href={`/san-pham/${list.slug}/${cat.slug}`}
                                 title={cat.name}
                               >
                                 {cat.name}

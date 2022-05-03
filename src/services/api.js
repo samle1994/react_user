@@ -13,5 +13,7 @@ const api = {
   url: url,
   instance: instance,
   get: instance.get,
+  promise: axios.all,
+  spread: axios.spread,
 };
 export default api;
