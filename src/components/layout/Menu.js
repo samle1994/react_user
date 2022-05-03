@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import $ from "jquery";
 import { useSelector } from "react-redux";
 const Menu = () => {
@@ -36,20 +36,20 @@ const Menu = () => {
               <ul>
                 {productlist.map((list, idx) => (
                   <li key={list.id}>
-                    <a href={`/san-pham/${list.slug}`} title={list.name}>
+                    <Link to={`/san-pham/${list.slug}`} title={list.name}>
                       {list.name}
-                    </a>
+                    </Link>
                     {list.product_cat ? (
                       <>
                         <ul>
                           {list.product_cat.map((cat, idx) => (
                             <li key={cat.id}>
-                              <a
-                                href={`/san-pham/${list.slug}/${cat.slug}`}
+                              <Link
+                                to={`/san-pham/${list.slug}/${cat.slug}`}
                                 title={cat.name}
                               >
                                 {cat.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>

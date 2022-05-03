@@ -29,6 +29,10 @@ const routes = [
     component: <Product />,
   },
   {
+    path: "/san-pham-detail/:slug/:id/",
+    component: <NotFound />,
+  },
+  {
     path: "*",
     component: <NotFound />,
   },

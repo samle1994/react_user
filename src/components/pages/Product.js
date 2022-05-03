@@ -9,6 +9,8 @@ const Product = () => {
   const [bannerproduct, setbannerproduct] = useState({});
   const [page, setpage] = useState(0);
   const [pagingItems, setpagingItems] = useState([]);
+  const [list, setlist] = useState("");
+  const [cat, setcat] = useState("");
   const params = useParams();
   const loadData = () => {
     const url = `product/paging?page=${page}&pageLength=8${
@@ -17,6 +19,8 @@ const Product = () => {
     api.get(url).then((res) => {
       if (res.data.errorCode === 0) {
         setproduct(res.data.data);
+        setlist(res.data.List);
+        setcat(res.data.Cat);
         let items = [];
         if (res.data.PageInfo.total > 1) {
           items.push(
@@ -80,7 +84,7 @@ const Product = () => {
               </a>
             </div>
             <div className="title_product">
-              <h2>Sản phẩm</h2>
+              <h2>{list !== "" ? (cat !== "" ? cat : list) : "Sản phẩm"}</h2>
             </div>
             <div className="row g-md-4 g-sm-3 g-2">
               {products.map((product, idx) => (
