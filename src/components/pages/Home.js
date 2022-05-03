@@ -122,40 +122,81 @@ const Home = () => {
 
   return (
     <>
-      <Sliders />
-      <section id="index">
-        <div className="banner_top">
+      <main>
+        <Sliders />
+        <section id="index">
+          <div className="banner_top">
+            <div className="wrapper">
+              <div className="margin-bn">
+                <Slider {...settings}>
+                  {bannerqc.map((bannerqc, idx) => (
+                    <div key={bannerqc.id} className="items-bn">
+                      <a
+                        target="blank"
+                        href={bannerqc.link !== "null" ? bannerqc.link : ""}
+                      >
+                        <img
+                          className="img-fluid"
+                          src={bannerqc.photo}
+                          alt={bannerqc.name}
+                        />
+                      </a>
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="prodcut_news">
           <div className="wrapper">
-            <div className="margin-bn">
-              <Slider {...settings}>
-                {bannerqc.map((bannerqc, idx) => (
-                  <div key={bannerqc.id} className="items-bn">
-                    <a
-                      target="blank"
-                      href={bannerqc.link !== "null" ? bannerqc.link : ""}
-                    >
-                      <img
-                        className="img-fluid"
-                        src={bannerqc.photo}
-                        alt={bannerqc.name}
-                      />
-                    </a>
+            <div className="title_main">
+              <h2>new arrival</h2>
+            </div>
+            <div className="margin-pr">
+              <Slider {...settings1}>
+                {productnew.map((product, idx) => (
+                  <div key={`pr-news-${idx}`} className="item_pr_l">
+                    <ItemsProduct
+                      name={product.name}
+                      price={product.price}
+                      photo={product.photo}
+                      id={product.id}
+                      slug={product.slug}
+                    />
                   </div>
                 ))}
               </Slider>
             </div>
           </div>
-        </div>
-      </section>
-      <section id="prodcut_news">
-        <div className="wrapper">
-          <div className="title_main">
-            <h2>new arrival</h2>
-          </div>
-          <div className="margin-pr">
-            <Slider {...settings1}>
-              {productnew.map((product, idx) => (
-                <div key={`pr-news-${idx}`} className="item_pr_l">
+        </section>
+        <section className="bannerseller">
+          <a
+            target="blank"
+            href={bannerseller.link !== "null" ? bannerseller.link : ""}
+          >
+            {bannerseller.photo ? (
+              <img
+                className="img-fluid"
+                src={bannerseller.photo}
+                alt="Banner seller"
+              />
+            ) : (
+              ""
+            )}
+          </a>
+        </section>
+        <section id="product_hot">
+          <div className="wrapper">
+            <div className="title_main">
+              <h2>best seller</h2>
+            </div>
+            <div className="row g-md-4 g-sm-3 g-2">
+              {producthot.map((product, idx) => (
+                <div
+                  key={`pr-hot-${idx}`}
+                  className="col-lg-3 col-md-4 col-sm-6 col-6"
+                >
                   <ItemsProduct
                     name={product.name}
                     price={product.price}
@@ -165,88 +206,65 @@ const Home = () => {
                   />
                 </div>
               ))}
-            </Slider>
+            </div>
           </div>
-        </div>
-      </section>
-      <section className="bannerseller">
-        <a
-          target="blank"
-          href={bannerseller.link !== "null" ? bannerseller.link : ""}
-        >
-          <img
-            className="img-fluid"
-            src={bannerseller.photo}
-            alt="Banner seller"
-          />
-        </a>
-      </section>
-      <section id="product_hot">
-        <div className="wrapper">
-          <div className="title_main">
-            <h2>best seller</h2>
+        </section>
+        <section className="bannersaleof">
+          <a
+            target="blank"
+            href={bannersaleoff.link !== "null" ? bannersaleoff.link : ""}
+          >
+            {bannersaleoff.photo ? (
+              <img
+                className="img-fluid"
+                src={bannersaleoff.photo}
+                alt="Banner sale off"
+              />
+            ) : (
+              ""
+            )}
+          </a>
+        </section>
+        <section id="product_hot">
+          <div className="wrapper">
+            <div className="title_main">
+              <h2>sale off</h2>
+            </div>
+            <div className="row g-md-4 g-sm-3 g-2">
+              {productsale.map((product, idx) => (
+                <div
+                  key={`pr-sale-${idx}`}
+                  className="col-lg-3 col-md-4 col-sm-6 col-6"
+                >
+                  <ItemsProduct
+                    name={product.name}
+                    price={product.price}
+                    photo={product.photo}
+                    id={product.id}
+                    slug={product.slug}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="row g-md-4 g-sm-3 g-2">
-            {producthot.map((product, idx) => (
-              <div
-                key={`pr-hot-${idx}`}
-                className="col-lg-3 col-md-4 col-sm-6 col-6"
-              >
-                <ItemsProduct
-                  name={product.name}
-                  price={product.price}
-                  photo={product.photo}
-                  id={product.id}
-                  slug={product.slug}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="bannersaleof">
-        <a
-          target="blank"
-          href={bannersaleoff.link !== "null" ? bannersaleoff.link : ""}
-        >
-          <img
-            className="img-fluid"
-            src={bannersaleoff.photo}
-            alt="Banner sale off"
-          />
-        </a>
-      </section>
-      <section id="product_hot">
-        <div className="wrapper">
-          <div className="title_main">
-            <h2>sale off</h2>
-          </div>
-          <div className="row g-md-4 g-sm-3 g-2">
-            {productsale.map((product, idx) => (
-              <div
-                key={`pr-sale-${idx}`}
-                className="col-lg-3 col-md-4 col-sm-6 col-6"
-              >
-                <ItemsProduct
-                  name={product.name}
-                  price={product.price}
-                  photo={product.photo}
-                  id={product.id}
-                  slug={product.slug}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="bannerbottom">
-        <a
-          target="blank"
-          href={bannerbottom.link !== "null" ? bannerbottom.link : ""}
-        >
-          <img className="img-fluid" src={bannerbottom.photo} alt="Banner qc" />
-        </a>
-      </section>
+        </section>
+        <section className="bannerbottom">
+          <a
+            target="blank"
+            href={bannerbottom.link !== "null" ? bannerbottom.link : ""}
+          >
+            {bannerbottom.photo ? (
+              <img
+                className="img-fluid"
+                src={bannerbottom.photo}
+                alt="Banner bottom"
+              />
+            ) : (
+              ""
+            )}
+          </a>
+        </section>
+      </main>
     </>
   );
 };

@@ -1,11 +1,12 @@
 const ItemsProduct = (props) => {
   const { name, photo, slug, price, id } = props;
+  const photo_pr = photo ? photo : "./noimage.png";
   return (
     <>
       <div className="item_pr">
         <div className="images_pr">
           <a title={name} href={`san-pham/${slug}-${id}`}>
-            <img className="transition img-fluid" src={photo} alt={name} />
+            <img className="transition img-fluid" src={photo_pr} alt={name} />
           </a>
         </div>
         <div className="des_pr">
