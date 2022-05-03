@@ -16,7 +16,6 @@ const DefaultLayout = () => {
   };
   api.get("showinfo").then((res) => {
     if (res.data.errorCode === 0) {
-      console.log(res.data.data);
       InfoAction(res.data.data);
     }
   });
