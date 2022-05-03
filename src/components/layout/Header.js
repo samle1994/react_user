@@ -2,10 +2,11 @@ import Menu from "./Menu";
 import React, { useEffect, useState } from "react";
 import api from "./../../services/api";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [logo, setlogo] = useState("./nologo.png");
   const [social, setsocial] = useState([]);
-  const [info, setinfo] = useState("");
+
   const [menu, setmenu] = useState(false);
   const loadData = () => {
     api.get("photo/logo").then((res) => {
@@ -16,11 +17,6 @@ const Header = () => {
     api.get("photos/social_top").then((res) => {
       if (res.data.errorCode === 0) {
         setsocial(res.data.data);
-      }
-    });
-    api.get("showinfo").then((res) => {
-      if (res.data.errorCode === 0) {
-        setinfo(res.data.data);
       }
     });
   };
@@ -39,6 +35,8 @@ const Header = () => {
     loadData();
   }, []);
 
+  const info = useSelector((state) => state.infoReducer.info);
+  //console.log(info);
   return (
     <>
       <header id="header">

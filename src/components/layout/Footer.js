@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import api from "./../../services/api";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
-  const [info, setinfo] = useState("");
   const [social, setsocial] = useState([]);
   const [news, setnews] = useState([]);
   const [backtop, setbacktop] = useState(false);
@@ -12,11 +12,6 @@ const Footer = () => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setsocial(res.data.data);
-      }
-    });
-    api.get("showinfo").then((res) => {
-      if (res.data.errorCode === 0) {
-        setinfo(res.data.data);
       }
     });
     api.get("newshot/paging?page=0&pageLength=3").then((res) => {
@@ -44,6 +39,7 @@ const Footer = () => {
       behavior: "smooth",
     });
   };
+  const info = useSelector((state) => state.infoReducer.info);
   return (
     <>
       <footer id="footer">
