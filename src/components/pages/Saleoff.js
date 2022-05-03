@@ -5,7 +5,7 @@ import { Pagination } from "react-bootstrap";
 import Left from "./../layout/Left";
 const Saleoff = () => {
   const [products, setproduct] = useState([]);
-  const [bannerproduct, setbannerproduct] = useState({});
+  const [bannerproduct, setbannerproduct] = useState("/slider.png");
   const [page, setpage] = useState(0);
   const [pagingItems, setpagingItems] = useState([]);
   const loadData = () => {
@@ -45,7 +45,7 @@ const Saleoff = () => {
     });
     api.get("photo/bannerproductsale").then((res) => {
       if (res.data.errorCode === 0) {
-        setbannerproduct(res.data.data);
+        setbannerproduct(res.data.data.photo);
       }
     });
   };
@@ -63,15 +63,7 @@ const Saleoff = () => {
                 target="blank"
                 href={bannerproduct.link !== "null" ? bannerproduct.link : ""}
               >
-                {bannerproduct.photo ? (
-                  <img
-                    className="img-fluid"
-                    src={bannerproduct.photo}
-                    alt="Banner seller"
-                  />
-                ) : (
-                  ""
-                )}
+                <img className="img-fluid" src={bannerproduct} alt="Banner" />
               </a>
             </div>
             <div className="title_product">

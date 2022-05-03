@@ -4,7 +4,7 @@ import api from "./../../services/api";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Header = () => {
-  const [logo, setlogo] = useState("./nologo.png");
+  const [logo, setlogo] = useState("/nologo.png");
   const [social, setsocial] = useState([]);
 
   const [menu, setmenu] = useState(false);

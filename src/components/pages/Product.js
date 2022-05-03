@@ -6,7 +6,7 @@ import Left from "./../layout/Left";
 import { useParams } from "react-router-dom";
 const Product = () => {
   const [products, setproduct] = useState([]);
-  const [bannerproduct, setbannerproduct] = useState({});
+  const [bannerproduct, setbannerproduct] = useState("/slider.png");
   const [page, setpage] = useState(0);
   const [pagingItems, setpagingItems] = useState([]);
   const [list, setlist] = useState("");
@@ -54,7 +54,7 @@ const Product = () => {
     });
     api.get("photo/bannerproduct").then((res) => {
       if (res.data.errorCode === 0) {
-        setbannerproduct(res.data.data);
+        setbannerproduct(res.data.data.photo);
       }
     });
   };
@@ -63,7 +63,7 @@ const Product = () => {
   }, [page, params.list, params.cat]);
   return (
     <>
-      <main>
+      <main id="main">
         <div className="wrapper d-flex flex-wrap align-items-start">
           <Left />
           <div className="content_right">
@@ -72,15 +72,7 @@ const Product = () => {
                 target="blank"
                 href={bannerproduct.link !== "null" ? bannerproduct.link : ""}
               >
-                {bannerproduct.photo ? (
-                  <img
-                    className="img-fluid"
-                    src={bannerproduct.photo}
-                    alt="Banner seller"
-                  />
-                ) : (
-                  ""
-                )}
+                <img className="img-fluid" src={bannerproduct} alt="Banner" />
               </a>
             </div>
             <div className="title_product">
