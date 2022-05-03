@@ -503,3 +503,13 @@ element.style {
   border-top: 3px solid #fff;
   text-align: center;
 }
+.scrollToTop {
+  width: 41px;
+  height: 41px;
+  position: fixed;
+  display: none;
+  bottom: 25px;
+  right: 25px;
+  z-index: 10;
+  cursor: pointer;
+}
