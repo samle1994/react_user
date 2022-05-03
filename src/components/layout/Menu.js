@@ -12,8 +12,35 @@ const Menu = () => {
       }
     });
   };
+
+  const scrollTop = () => {
+    let heaigt_header = $("#header").height();
+    $("#header").css("min-height", heaigt_header);
+    document.onscroll = function () {
+      let offsettop = $(window).scrollTop();
+      if (offsettop >= heaigt_header) {
+        if (!$("#header .header").hasClass("fix_head animated fadeInDown")) {
+          $("#header .header").addClass("fix_head animated fadeInDown");
+        }
+      } else {
+        $("#header .header").removeClass("fix_head animated fadeInDown");
+      }
+      if (!$(".scrollToTop").length) {
+        $("body").append(
+          '<div class="scrollToTop"><img src="./top.png" alt="Go Top"/></div>'
+        );
+      }
+      if ($(window).scrollTop() > 200) $(".scrollToTop").fadeIn();
+      else $(".scrollToTop").fadeOut();
+    };
+    $("body").on("click", ".scrollToTop", function () {
+      $("html, body").animate({ scrollTop: 0 }, 0.1);
+      return false;
+    });
+  };
   useEffect(() => {
     loadData();
+    scrollTop();
   }, []);
   const showMenu = (e) => {
     e.preventDefault();
@@ -34,29 +61,6 @@ const Menu = () => {
       $(".icon_down").addClass("active");
     }
   };
-  let heaigt_header = $("#header").height();
-  $("#header").css("min-height", heaigt_header);
-  document.onscroll = function () {
-    let offsettop = $(window).scrollTop();
-    if (offsettop >= heaigt_header) {
-      if (!$("#header .header").hasClass("fix_head animated fadeInDown")) {
-        $("#header .header").addClass("fix_head animated fadeInDown");
-      }
-    } else {
-      $("#header .header").removeClass("fix_head animated fadeInDown");
-    }
-    if (!$(".scrollToTop").length) {
-      $("body").append(
-        '<div class="scrollToTop"><img src="./top.png" alt="Go Top"/></div>'
-      );
-    }
-    if ($(window).scrollTop() > 200) $(".scrollToTop").fadeIn();
-    else $(".scrollToTop").fadeOut();
-  };
-  $("body").on("click", ".scrollToTop", function () {
-    $("html, body").animate({ scrollTop: 0 }, 0.1);
-    return false;
-  });
 
   return (
     <>
