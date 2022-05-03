@@ -1,6 +1,6 @@
 import axios from "axios";
 const url = {
-  baseUrl: "https://api.lesam.store/api",
+  baseUrl: "https://api.lesam.store/api/Frontend/",
 };
 const instance = axios.create({
   baseURL: url.baseUrl,

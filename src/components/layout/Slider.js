@@ -4,7 +4,7 @@ import api from "./../../services/api";
 const Sliders = () => {
   const [slider, setslider] = useState([]);
   const loadData = () => {
-    api.get("/Frontend/photos/slider").then((res) => {
+    api.get("photos/slider").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setslider(res.data.data);

@@ -6,7 +6,7 @@ const Menu = () => {
   const [productlist, setproductlist] = useState([]);
   const [menumobile, setmenumobile] = useState(false);
   const loadData = () => {
-    api.get("/Frontend/productlist").then((res) => {
+    api.get("productlist").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setproductlist(res.data.data);

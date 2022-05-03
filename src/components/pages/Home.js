@@ -13,40 +13,40 @@ const Home = () => {
   const [productsale, setproductsale] = useState([]);
   const [bannerbottom, setbannerbottom] = useState({});
   const loadData = () => {
-    api.get("/Frontend/photos/banner").then((res) => {
+    api.get("photos/banner").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setbannerqc(res.data.data);
       }
     });
-    api.get("/Frontend/productnews/paging?page=0&pageLength=20").then((res) => {
+    api.get("productnews/paging?page=0&pageLength=20").then((res) => {
       if (res.data.errorCode === 0) {
         setproductnew(res.data.data);
       }
     });
-    api.get("/Frontend/photo/bannerseller").then((res) => {
+    api.get("photo/bannerseller").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setbannerseller(res.data.data);
       }
     });
-    api.get("/Frontend/producthot/paging?page=0&pageLength=8").then((res) => {
+    api.get("producthot/paging?page=0&pageLength=8").then((res) => {
       if (res.data.errorCode === 0) {
         setproducthot(res.data.data);
       }
     });
-    api.get("/Frontend/photo/bannersaleoff").then((res) => {
+    api.get("photo/bannersaleoff").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setbannersaleoff(res.data.data);
       }
     });
-    api.get("/Frontend/productsale/paging?page=0&pageLength=8").then((res) => {
+    api.get("productsale/paging?page=0&pageLength=8").then((res) => {
       if (res.data.errorCode === 0) {
         setproductsale(res.data.data);
       }
     });
-    api.get("/Frontend/photo/bannerqc").then((res) => {
+    api.get("photo/bannerqc").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setbannerbottom(res.data.data);

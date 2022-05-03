@@ -8,19 +8,17 @@ const Header = () => {
   const [info, setinfo] = useState("");
   const [menu, setmenu] = useState(false);
   const loadData = () => {
-    api.get("/Frontend/photo/logo").then((res) => {
-      //console.log(res);
+    api.get("photo/logo").then((res) => {
       if (res.data.errorCode === 0) {
         setlogo(res.data.data.photo);
       }
     });
-    api.get("/Frontend/photos/social_top").then((res) => {
-      //console.log(res);
+    api.get("photos/social_top").then((res) => {
       if (res.data.errorCode === 0) {
         setsocial(res.data.data);
       }
     });
-    api.get("/Frontend/showinfo").then((res) => {
+    api.get("showinfo").then((res) => {
       if (res.data.errorCode === 0) {
         setinfo(res.data.data);
       }

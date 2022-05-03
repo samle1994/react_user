@@ -8,18 +8,18 @@ const Footer = () => {
   const [news, setnews] = useState([]);
   const [backtop, setbacktop] = useState(false);
   const loadData = () => {
-    api.get("/Frontend/photos/social_bottom").then((res) => {
+    api.get("photos/social_bottom").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setsocial(res.data.data);
       }
     });
-    api.get("/Frontend/showinfo").then((res) => {
+    api.get("showinfo").then((res) => {
       if (res.data.errorCode === 0) {
         setinfo(res.data.data);
       }
     });
-    api.get("/Frontend/newshot/paging?page=0&pageLength=3").then((res) => {
+    api.get("newshot/paging?page=0&pageLength=3").then((res) => {
       if (res.data.errorCode === 0) {
         setnews(res.data.data);
       }
