@@ -1,7 +1,7 @@
 import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
 import Saleoff from "./components/pages/Saleoff";
-import ProductNews from "./components/ProductNews";
+import ProductNews from "./components/pages/ProductNews";
 const routes = [
   {
     path: "/",

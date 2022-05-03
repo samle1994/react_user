@@ -370,6 +370,41 @@ element.style {
   top: 37px;
   left: 100%;
 }
+
+.title_product {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  overflow: hidden;
+}
+.title_product h2 {
+  font-size: 35px;
+  color: #221f1f;
+  font-weight: normal;
+  display: inline-block;
+  position: relative;
+  padding: 0 20px;
+}
+.title_product h2:before {
+  content: "";
+  width: 360px;
+  height: 2px;
+  background: #595656;
+  border-bottom: 1px solid #737171;
+  position: absolute;
+  top: 50%;
+  right: 100%;
+}
+.title_product h2:after {
+  content: "";
+  width: 360px;
+  height: 2px;
+  background: #595656;
+  border-bottom: 1px solid #737171;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+}
 .slick-dots li button:before {
   font-size: 15px !important;
 }

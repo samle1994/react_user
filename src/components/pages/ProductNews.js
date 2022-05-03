@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import ItemsProduct from "../ItemsProduct";
 import api from "./../../services/api";
 import { Pagination } from "react-bootstrap";
-const Saleoff = () => {
-  const [productsale, setproductsale] = useState([]);
+const ProductNews = () => {
+  const [productnew, setproductnew] = useState([]);
   const [page, setpage] = useState(0);
   const [pagingItems, setpagingItems] = useState([]);
   const loadData = () => {
-    api.get(`productsale/paging?page=${page}&pageLength=8`).then((res) => {
+    api.get(`productnews/paging?page=${page}&pageLength=8`).then((res) => {
       if (res.data.errorCode === 0) {
-        setproductsale(res.data.data);
+        setproductnew(res.data.data);
 
         let items = [
           <Pagination.Item key="first" onClick={() => setpage(0)}>
@@ -47,10 +47,10 @@ const Saleoff = () => {
       <main>
         <div className="wrapper">
           <div className="title_product">
-            <h2>Sản phẩm sale</h2>
+            <h2>Sản phẩm mới</h2>
           </div>
           <div className="row g-md-4 g-sm-3 g-2">
-            {productsale.map((product, idx) => (
+            {productnew.map((product, idx) => (
               <div
                 key={`pr-hot-${idx}`}
                 className="col-lg-3 col-md-4 col-sm-6 col-6"
@@ -74,4 +74,4 @@ const Saleoff = () => {
   );
 };
 
-export default Saleoff;
+export default ProductNews;
