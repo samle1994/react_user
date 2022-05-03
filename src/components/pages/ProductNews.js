@@ -59,12 +59,7 @@ const ProductNews = () => {
           <Left />
           <div className="content_right">
             <div className="banner mb-3">
-              <a
-                target="blank"
-                href={bannerproduct.link !== "null" ? bannerproduct.link : ""}
-              >
-                <img className="img-fluid" src={bannerproduct} alt="Banner" />
-              </a>
+              <img className="img-fluid" src={bannerproduct} alt="Banner" />
             </div>
             <div className="title_product">
               <h2>Sản phẩm mới</h2>
