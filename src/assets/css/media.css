@@ -92,6 +92,13 @@
     padding-left: 0;
     padding-top: 20px;
   }
+  #left {
+    display: none;
+  }
+  .content_right {
+    width: 100%;
+    padding-left: 0;
+  }
 }
 @media (max-width: 767px) {
   .margin-bn,
