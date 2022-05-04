@@ -3,6 +3,8 @@ import NotFound from "./components/pages/NotFound";
 import Saleoff from "./components/pages/Saleoff";
 import ProductNews from "./components/pages/ProductNews";
 import Product from "./components/pages/Product";
+import ProductDetail from "./components/pages/ProductDetail";
+import Search from "./components/pages/Search";
 const routes = [
   {
     path: "/",
@@ -30,7 +32,11 @@ const routes = [
   },
   {
     path: "/san-pham-detail/:slug/:id/",
-    component: <NotFound />,
+    component: <ProductDetail />,
+  },
+  {
+    path: "/search/:keyword",
+    component: <Search />,
   },
   {
     path: "*",

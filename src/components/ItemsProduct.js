@@ -6,13 +6,13 @@ const ItemsProduct = (props) => {
     <>
       <div className="item_pr">
         <div className="images_pr">
-          <Link to={`/san-pham-detail/${slug}`}>
+          <Link to={`/san-pham-detail/${slug}/${id}`}>
             <img className="transition img-fluid" src={photo_pr} alt={name} />
           </Link>
         </div>
         <div className="des_pr">
           <h3>
-            <Link to={`/san-pham-detail/${slug}`}>{name}</Link>
+            <Link to={`/san-pham-detail/${slug}/${id}`}>{name}</Link>
           </h3>
           <p>{price} VNĐ</p>
         </div>

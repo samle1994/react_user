@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import ActionTypes from "./../store/actions";
 import { useDispatch } from "react-redux";
 import api from "./../services/api";
+
 const DefaultLayout = () => {
   const dispatch = useDispatch();
 
@@ -12,18 +13,19 @@ const DefaultLayout = () => {
     dispatch({
       type: ActionTypes.SHOW_INFO,
       info: data,
-      product_list: productlist,
     });
     dispatch({
       type: ActionTypes.PRODUCT_LIST,
       product_list: productlist,
     });
   };
+
   const request1 = api.get("showinfo");
   const request2 = api.get("productlist");
   api.promise([request1, request2]).then(
     api.spread((...res) => {
       if (res[0].data.errorCode === 0 && res[0].data.errorCode === 0) {
+        //console.log(res);
         InfoAction(res[0].data.data, res[1].data.data);
       }
     })

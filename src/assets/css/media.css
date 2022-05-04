@@ -81,6 +81,17 @@
   .icon_down.active i::before {
     content: "\f286";
   }
+  .container_product .images_product {
+    width: 100%;
+  }
+  .container_product {
+    flex-wrap: wrap;
+  }
+  .container_product .des_product {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 20px;
+  }
 }
 @media (max-width: 767px) {
   .margin-bn,
@@ -115,5 +126,19 @@
   }
   #footer .footer {
     padding: 20px 0;
+  }
+  .container_product .images_product .thumb_images {
+    width: 100%;
+    order: 2;
+    padding-right: 0;
+  }
+  .container_product .images_product .box_images {
+    width: 100%;
+  }
+  .items_thumb {
+    padding: 0 5px;
+  }
+  .actions button {
+    width: 200px;
   }
 }

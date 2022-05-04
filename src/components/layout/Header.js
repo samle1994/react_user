@@ -1,13 +1,14 @@
 import Menu from "./Menu";
 import React, { useEffect, useState } from "react";
 import api from "./../../services/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Header = () => {
   const [logo, setlogo] = useState("/nologo.png");
   const [social, setsocial] = useState([]);
-
   const [menu, setmenu] = useState(false);
+  const navigate = useNavigate();
+  const InputRef = React.useRef();
   const loadData = () => {
     api.get("photo/logo").then((res) => {
       if (res.data.errorCode === 0) {
@@ -37,6 +38,11 @@ const Header = () => {
 
   const info = useSelector((state) => state.infoReducer.info);
   //console.log(info);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const keyword = InputRef.current.value;
+    navigate("/search/" + keyword);
+  };
   return (
     <>
       <header id="header">
@@ -69,12 +75,17 @@ const Header = () => {
             </div>
             <Menu />
             <div className="search-menu">
-              <form className="form_search" name="form_search">
+              <form
+                onSubmit={handleSearch}
+                className="form_search"
+                name="form_search"
+              >
                 <input
                   type="text"
                   name="keywords"
                   placeholder="Bạn đang tìm kiếm sản phẩm gì?"
                   autoComplete="off"
+                  ref={InputRef}
                 />
                 <button type="submit">
                   <i className="bi bi-search"></i>
@@ -83,7 +94,7 @@ const Header = () => {
             </div>
             <div className="right_header">
               <div className="icon_cart">
-                <a href="gio-hang">
+                <a href="/#">
                   <i className="bi bi-cart-check-fill"></i>
                   <span className="count-cart">0</span>
                 </a>
