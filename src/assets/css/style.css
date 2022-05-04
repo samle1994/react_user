@@ -599,3 +599,10 @@ element.style {
   width: calc(100% - 240px);
   padding-left: 30px;
 }
+.loadding {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

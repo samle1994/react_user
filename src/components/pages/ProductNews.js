@@ -8,10 +8,12 @@ const ProductNews = () => {
   const [bannerproduct, setbannerproduct] = useState("/slider.png");
   const [page, setpage] = useState(0);
   const [pagingItems, setpagingItems] = useState([]);
+  const [show, setshow] = useState(true);
   const loadData = () => {
     api.get(`productnews/paging?page=${page}&pageLength=8`).then((res) => {
       if (res.data.errorCode === 0) {
         setproduct(res.data.data);
+        setshow(false);
         let items = [];
         if (res.data.PageInfo.total > 1) {
           items.push(
@@ -58,6 +60,7 @@ const ProductNews = () => {
         <div className="wrapper d-flex flex-wrap align-items-start">
           <Left />
           <div className="content_right">
+            {show === true ? <div className="loadding"></div> : ""}
             <div className="banner mb-3">
               <img className="img-fluid" src={bannerproduct} alt="Banner" />
             </div>
@@ -80,6 +83,7 @@ const ProductNews = () => {
                 </div>
               ))}
             </div>
+
             <Pagination className="mt-1 mb-3 justify-content-center">
               {pagingItems}
             </Pagination>

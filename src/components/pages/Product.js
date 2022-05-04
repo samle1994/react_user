@@ -11,6 +11,7 @@ const Product = () => {
   const [pagingItems, setpagingItems] = useState([]);
   const [list, setlist] = useState("");
   const [cat, setcat] = useState("");
+  const [show, setshow] = useState(true);
   const params = useParams();
   const loadData = () => {
     const url = `product/paging?page=${page}&pageLength=8${
@@ -21,6 +22,7 @@ const Product = () => {
         setproduct(res.data.data);
         setlist(res.data.List);
         setcat(res.data.Cat);
+        setshow(false);
         let items = [];
         if (res.data.PageInfo.total > 1) {
           items.push(
@@ -67,6 +69,7 @@ const Product = () => {
         <div className="wrapper d-flex flex-wrap align-items-start">
           <Left />
           <div className="content_right">
+            {show === true ? <div className="loadding"></div> : ""}
             <div className="banner mb-3">
               <img className="img-fluid" src={bannerproduct} alt="Banner" />
             </div>
@@ -89,6 +92,7 @@ const Product = () => {
                 </div>
               ))}
             </div>
+
             <Pagination className="mt-1 mb-3 justify-content-center">
               {pagingItems}
             </Pagination>
