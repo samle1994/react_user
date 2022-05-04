@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import ItemsProduct from "../ItemsProduct";
 import api from "./../../services/api";
 import { useParams } from "react-router-dom";
@@ -9,7 +9,7 @@ const ProductDetail = () => {
   const [photos, setphotos] = useState([]);
   const [productrelate, setproductrelate] = useState([]);
   const params = useParams();
-  const contentRef = useRef();
+  const contentRef = React.useRef();
   const loadData = () => {
     api.get(`productdetail/${params.id}`).then((res) => {
       if (res.data.errorCode === 0) {
