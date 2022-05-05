@@ -1,13 +1,15 @@
 import Menu from "./Menu";
 import React, { useEffect, useState } from "react";
 import api from "./../../services/api";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Header = () => {
   const [logo, setlogo] = useState("/nologo.png");
   const [social, setsocial] = useState([]);
   const [menu, setmenu] = useState(false);
   const navigate = useNavigate();
+  const params = useLocation();
+  let com = params.pathname.split("/")[1];
   const InputRef = React.useRef();
   const loadData = () => {
     api.get("photo/logo").then((res) => {
@@ -43,6 +45,11 @@ const Header = () => {
     const keyword = InputRef.current.value;
     navigate("/search/" + keyword);
   };
+  useEffect(() => {
+    if (com !== "search") {
+      InputRef.current.value = "";
+    }
+  }, [params]);
   return (
     <>
       <header id="header">

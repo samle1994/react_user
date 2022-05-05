@@ -13,7 +13,7 @@ const Saleoff = () => {
     api.get(`productsale/paging?page=${page}&pageLength=8`).then((res) => {
       if (res.data.errorCode === 0) {
         setproduct(res.data.data);
-
+        setshow(false);
         let items = [];
         if (res.data.PageInfo.total > 1) {
           items.push(
@@ -21,7 +21,6 @@ const Saleoff = () => {
               &laquo;
             </Pagination.Item>
           );
-
           for (let i = 0; i < res.data.PageInfo.total; i++) {
             items.push(
               <Pagination.Item
@@ -48,7 +47,6 @@ const Saleoff = () => {
     api.get("photo/bannerproductsale").then((res) => {
       if (res.data.errorCode === 0) {
         setbannerproduct(res.data.data.photo);
-        setshow(false);
       }
     });
   };

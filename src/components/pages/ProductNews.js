@@ -13,7 +13,7 @@ const ProductNews = () => {
     api.get(`productnews/paging?page=${page}&pageLength=8`).then((res) => {
       if (res.data.errorCode === 0) {
         setproduct(res.data.data);
-
+        setshow(false);
         let items = [];
         if (res.data.PageInfo.total > 1) {
           items.push(
@@ -48,7 +48,6 @@ const ProductNews = () => {
     api.get("photo/bannerproductnews").then((res) => {
       if (res.data.errorCode === 0) {
         setbannerproduct(res.data.data.photo);
-        setshow(false);
       }
     });
   };
