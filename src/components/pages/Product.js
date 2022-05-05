@@ -22,7 +22,7 @@ const Product = () => {
         setproduct(res.data.data);
         setlist(res.data.List);
         setcat(res.data.Cat);
-        setshow(false);
+
         let items = [];
         if (res.data.PageInfo.total > 1) {
           items.push(
@@ -57,6 +57,7 @@ const Product = () => {
     api.get("photo/bannerproduct").then((res) => {
       if (res.data.errorCode === 0) {
         setbannerproduct(res.data.data.photo);
+        setshow(false);
       }
     });
   };
