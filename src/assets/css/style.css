@@ -715,3 +715,71 @@ element.style {
 .slick-prev {
   display: none !important;
 }
+/* News */
+
+.margin-news {
+  margin: 0 -15px;
+}
+.item_news_l {
+  padding: 0 15px;
+}
+.item_news .images_news > a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #eeeeed;
+}
+.item_news .images_news > a:hover img {
+  transform: scale(1.1);
+}
+.item_news .des_news {
+  padding-top: 15px;
+  text-align: center;
+}
+.item_news .des_news h3 a {
+  font-size: 17px;
+  color: #000000;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  max-height: 42px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.item_news .des_news h3 a:hover {
+  color: red;
+}
+.item_news .des_news p {
+  font-size: 14px;
+  max-height: 63px;
+  overflow: hidden;
+}
+.h2_detail {
+  font-size: 20px;
+}
+.order_news {
+  margin-bottom: 5px;
+  padding-left: 25px;
+}
+.order_news a {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+.order_news:hover {
+  margin-left: -10px;
+}
+.span_orther {
+  width: 100%;
+  font-size: 20px;
+  display: block;
+  text-transform: uppercase;
+  margin: 15px 0;
+}
+.slick-dots {
+  position: relative !important;
+  bottom: auto !important;
+}

@@ -181,7 +181,7 @@ const ProductDetail = () => {
           <div className="title_product">
             <h2>Sản phẩm tương tự</h2>
           </div>
-          <div className="margin-pr">
+          <div className="margin-pr mb-3">
             <Slider {...settings2}>
               {productrelate.map((product, idx) => (
                 <div key={`pr-news-${idx}`} className="item_pr_l">

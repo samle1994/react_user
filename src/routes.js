@@ -5,6 +5,8 @@ import ProductNews from "./components/pages/ProductNews";
 import Product from "./components/pages/Product";
 import ProductDetail from "./components/pages/ProductDetail";
 import Search from "./components/pages/Search";
+import News from "./components/pages/News";
+import NewsDetail from "./components/pages/NewsDetail";
 const routes = [
   {
     path: "/",
@@ -31,8 +33,16 @@ const routes = [
     component: <Product />,
   },
   {
-    path: "/san-pham-detail/:slug/:id/",
+    path: "/san-pham/detail/:slug/:id/",
     component: <ProductDetail />,
+  },
+  {
+    path: "/tin-tuc",
+    component: <News />,
+  },
+  {
+    path: "/tin-tuc/:slug/:id/",
+    component: <NewsDetail />,
   },
   {
     path: "/search/:keyword",

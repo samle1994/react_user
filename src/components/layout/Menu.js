@@ -61,14 +61,15 @@ const Menu = () => {
                 ))}
               </ul>
             </li>
-            <li>
-              <NavLink to="/tin-tuc">Tin tức</NavLink>
-            </li>
+
             <li>
               <NavLink to="/sale-off">Sale off</NavLink>
             </li>
             <li>
               <NavLink to="/san-pham-moi">Sản phẩm mới</NavLink>
+            </li>
+            <li>
+              <NavLink to="/tin-tuc">Tin tức</NavLink>
             </li>
           </ul>
         </nav>
