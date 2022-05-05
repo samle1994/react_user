@@ -3,11 +3,13 @@ import Slider from "react-slick";
 import api from "./../../services/api";
 const Sliders = () => {
   const [slider, setslider] = useState([]);
+  const [show, setshow] = useState(false);
   const loadData = () => {
     api.get("photos/slider").then((res) => {
       //console.log(res);
       if (res.data.errorCode === 0) {
         setslider(res.data.data);
+        setshow(true);
       }
     });
   };
@@ -29,9 +31,16 @@ const Sliders = () => {
   return (
     <>
       <div id="slidershow">
+        {show === false ? (
+          <div className="loadding">
+            <img src="/loading.gif" alt="loadding" />
+          </div>
+        ) : (
+          ""
+        )}
         <Slider {...settings}>
           {slider.map((slider, idx) => (
-            <div key={slider.id}>
+            <div className="items_slider" key={slider.id}>
               <a target="blank" href={slider.link !== null ? slider.link : ""}>
                 <img src={slider.photo} alt={slider.name} />
               </a>

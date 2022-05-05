@@ -69,7 +69,13 @@ const Product = () => {
         <div className="wrapper d-flex flex-wrap align-items-start">
           <Left />
           <div className="content_right">
-            {show === true ? <div className="loadding"></div> : ""}
+            {show === true ? (
+              <div className="loadding">
+                <img src="/loading.gif" alt="loadding" />
+              </div>
+            ) : (
+              ""
+            )}
             <div className="banner mb-3">
               <img className="img-fluid" src={bannerproduct} alt="Banner" />
             </div>
@@ -92,7 +98,6 @@ const Product = () => {
                 </div>
               ))}
             </div>
-
             <Pagination className="mt-1 mb-3 justify-content-center">
               {pagingItems}
             </Pagination>
